@@ -23,7 +23,6 @@ def pascals_triangle(tiers):
     rows.append(this_row)   
   return rows
 
-#TODO: find the length of the longest number and compensate whitespasce everywhere else accordingly
 def triangulate(list2d): #get it
   ldigit = 0
   for i in list2d:
@@ -38,14 +37,15 @@ def triangulate(list2d): #get it
     for j in range(i):
       for l in range(ldigit):
         formatted += ' '
-    for k in list2d[index]:
+    for ki, k in enumerate(list2d[index]):
       formatted += str(k)
-      for l in range(ldigit):#-(floor(log10(abs(k))) + 1)):
+      for l in range(ldigit-(floor(log10(abs(k))))+1):
         formatted += ' '
     formatted += '\n'  
   return formatted
 
-r = triangulate(pascals_triangle(5))
-print (r)
+#changeme
+TIERS = 10
 
-      
+r = triangulate(pascals_triangle(TIERS))
+print (r)
