@@ -31,15 +31,14 @@ def triangulate(list2d): #get it
       if tldigit > ldigit:
         ldigit = tldigit
   formatted = ""
-  length = len(list2d)-1
-  for i in reversed(range(len(list2d))):
-    index = length-i
+  for index, i in enumerate(reversed(range(len(list2d)))):
     for j in range(i):
       for l in range(ldigit):
         formatted += ' '
-    for ki, k in enumerate(list2d[index]):
+    for k in list2d[index]:
       formatted += str(k)
-      for l in range(ldigit-(floor(log10(abs(k))))+1):
+      kl = floor(log10(abs(k)))
+      for l in range(ldigit - kl + (ldigit - 1)):
         formatted += ' '
     formatted += '\n'  
   return formatted
