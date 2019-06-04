@@ -8,9 +8,9 @@ def pascals_triangle(tiers):
     for j in range(i):
       left = -1
       right = -1
-      if j==0:
+      if j == 0:
         left = 0
-      if j==(i-1):
+      if j == (i-1):
         right = 0
       if left is 0 and right is 0:
         this_row.append(1)
@@ -32,8 +32,7 @@ def triangulate(list2d): #get it
         ldigit = tldigit
   formatted = ""
   for index, i in enumerate(reversed(range(len(list2d)))):
-    for j in range(i):
-      for l in range(ldigit):
+    for j in range(i * ldigit):
         formatted += ' '
     for k in list2d[index]:
       formatted += str(k)
@@ -44,7 +43,9 @@ def triangulate(list2d): #get it
   return formatted
 
 #changeme
-TIERS = 10
-
-r = triangulate(pascals_triangle(TIERS))
-print (r)
+while True:
+  TIERS = input("\n\n>")
+  if TIERS is "EXIT" or TIERS is "exit":
+    exit()
+  r = triangulate(pascals_triangle(int(TIERS)))
+  print (r)
